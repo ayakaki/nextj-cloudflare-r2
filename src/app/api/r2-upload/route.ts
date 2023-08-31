@@ -1,7 +1,7 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { NextRequest, NextResponse } from 'next/server';
 
-export const corsHeaders = {
+const corsHeaders = {
   'Access-Control-Allow-Origin': 'http://localhost:3000', // 許可するオリジン
   'Access-Control-Allow-Methods': 'POST, OPTIONS', // 許可するメソッド
   'Access-Control-Allow-Headers': 'Content-Type', // 許可するリクエストヘッダー
