@@ -1,16 +1,16 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest, response: NextResponse) {
-  const S3 = new S3Client({
-    region: 'auto',
-    endpoint: process.env.ENDPOINT || '',
-    credentials: {
-      accessKeyId: process.env.R2_ACCESS_KEY_ID || '',
-      secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || '',
-    },
-  });
+const S3 = new S3Client({
+  region: 'auto',
+  endpoint: process.env.ENDPOINT || '',
+  credentials: {
+    accessKeyId: process.env.R2_ACCESS_KEY_ID || '',
+    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || '',
+  },
+});
 
+export async function POST(request: NextRequest, response: NextResponse) {
   const data = await request.formData();
   const file: File | null = data.get('file') as unknown as File;
 

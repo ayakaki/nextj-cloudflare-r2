@@ -32,7 +32,11 @@ export const MyForm = () => {
         name="file"
         onChange={(e) => setFile(e.target.files?.[0])}
       />
-      <input type="submit" value="Upload" />
+      <input
+        className="px-4  bg-gray-100 rounded border-2 border-gray-500"
+        type="submit"
+        value="アップロード"
+      />
     </form>
   );
 };
